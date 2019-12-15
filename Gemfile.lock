@@ -73,6 +73,8 @@ GEM
       aws_cf_signer
       rest-client
     coderay (1.1.2)
+    concerto_frontend (0.4.3)
+      rails
     concurrent-ruby (1.1.5)
     crass (1.0.5)
     devise (4.7.1)
@@ -102,6 +104,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
+    json (1.8.6)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -125,6 +128,8 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
+    open-weather (0.12.0)
+      json (~> 1)
     orm_adapter (0.5.0)
     pg (0.21.0)
     pry (0.12.2)
@@ -237,12 +242,14 @@ DEPENDENCIES
   bootsnap
   carrierwave (~> 1.2)
   cloudinary (~> 1.9.1)
+  concerto_frontend (~> 0.4.2)
   devise
   dotenv-rails
   font-awesome-sass (~> 5.6.1)
   geocoder
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
+  open-weather (~> 0.12.0)
   pg (~> 0.21)
   pry-byebug
   pry-rails

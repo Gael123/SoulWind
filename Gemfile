@@ -18,6 +18,8 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
+gem 'concerto_frontend', '~> 0.4.2'
+gem 'open-weather', '~> 0.12.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
