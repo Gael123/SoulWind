@@ -3,7 +3,7 @@ class ExperiencesController < ApplicationController
 
   def index
     @experiences = Experience.geocoded
-    @markers = @experiences.map do |flat|
+    @markers = @experiences.map do |experience|
       {
         lat: experience.latitude,
         lng: experience.longitude

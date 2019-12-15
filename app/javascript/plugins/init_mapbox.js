@@ -8,7 +8,9 @@ const buildMap =() => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
+    style: 'mapbox://styles/mapbox/streets-v10',
+    center: [-74.5, 40],
+    zoom: 9
   });
 };
 
@@ -28,10 +30,10 @@ const fitMapToMarkers = (map, markers) => {
 };
 
 const initMapbox = () => {
-  if (mapElement) {
+  {
     const map = buildMap();
     const markers = JSON.parse(mapElement.dataset.markers);
-    addMarkersToMap(map, markers);
+    addMarkersTo(map, markers);
     fitMapToMarkers(map, markers);
   }
 };
