@@ -1,2 +1,4 @@
 class Experience < ApplicationRecord
-end
+  has_many :posts
+  belongs_to :user
+  validates :content, presence: true,
