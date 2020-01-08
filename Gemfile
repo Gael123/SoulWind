@@ -20,6 +20,7 @@ gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'concerto_frontend', '~> 0.4.2'
 gem 'open-weather', '~> 0.12.0'
+gem 'forecast_io'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
