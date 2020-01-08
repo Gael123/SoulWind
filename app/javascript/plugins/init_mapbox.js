@@ -9,8 +9,10 @@ const buildMap =() => {
   return new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10',
-    center: [-74.5, 40],
-    zoom: 9
+    duration: 0.8,
+    pitch:45,
+    center: [151.2205038,-33.8499252],
+    zoom: 10,
   });
 };
 
@@ -23,6 +25,11 @@ const addMarkersToMap = (map, markers) => {
   });
 };
 
+
+
+
+
+
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
@@ -33,8 +40,9 @@ const initMapbox = () => {
   {
     const map = buildMap();
     const markers = JSON.parse(mapElement.dataset.markers);
-    addMarkersTo(map, markers);
+    addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
+
   }
 };
 
