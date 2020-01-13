@@ -24,7 +24,33 @@ checked="checked"
 <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
 <label for="satellite">satellite</label>
 </div>
-
-
-
 </div>
+<div class="container">
+      <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+          <form class="d-flex align-items-center">
+            <!-- <input type="text" id="city-input" placeholder="Enter city"> -->
+            <select id="city-input" class="select2"></select>
+            <input type="submit" value="Get the weather" class="btn btn-primary ml-3">
+          </form>
+          <div class="card mt-4 mb-5">
+            <div class="card-body">
+              <h1>Weather in <span id="city"></span></h1>
+              <h3 id="date" class="gray-text"></h3>
+              <div id="weather">
+                <p id="description"></p>
+                <div class="d-flex">
+                  <img src="" alt="Weather Icon" id="icon">
+                  <h2 id="temperature"></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="" class="btn btn-success w-100" id="current-location">Get current weather in your city</a>
+        </div>
+      </div>
+    </div>
+
+
+
+
