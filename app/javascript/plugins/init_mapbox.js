@@ -1,4 +1,4 @@
-import mapboxgl from 'mapbox-gl';
+rails simport mapboxgl from 'mapbox-gl';
 // import fetch from 'cross-fetch';
 // import { storeCurrentPosition, getCurrentPosition } from './location';
 
