@@ -1,6 +1,5 @@
-rails simport mapboxgl from 'mapbox-gl';
-// import fetch from 'cross-fetch';
-// import { storeCurrentPosition, getCurrentPosition } from './location';
+import mapboxgl from 'mapbox-gl';
+
 
 const mapElement = document.getElementById('map');
 
@@ -8,13 +7,15 @@ const buildMap =() => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10',
+    style: 'mapbox://styles/mapbox/satellite-v9',
     duration: 0.8,
-    pitch:45,
+    pitch:85,
     center: [151.2205038,-33.8499252],
-    zoom: 10,
+    zoom: 13,
   });
 };
+
+
 
 
 const addMarkersToMap = (map, markers) => {
@@ -24,10 +25,6 @@ const addMarkersToMap = (map, markers) => {
       .addTo(map);
   });
 };
-
-
-
-
 
 
 const fitMapToMarkers = (map, markers) => {
@@ -43,7 +40,19 @@ const initMapbox = () => {
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
 
-  }
+
+}
 };
+
+
+
+
+
+
+
+
+
+
+
 
 export { initMapbox };
