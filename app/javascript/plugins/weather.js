@@ -38,4 +38,4 @@ const fetchCurrentPositionWeather = (event) => {
   });
 };
 
-export { fetchWeather, fetchCurrentPositionWeather };
+export { fetchWeatherByCoordinates, fetchCurrentPositionWeather };
