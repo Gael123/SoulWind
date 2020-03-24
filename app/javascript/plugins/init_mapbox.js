@@ -2,11 +2,14 @@ import mapboxgl from 'mapbox-gl';
 
 const mapElement = document.getElementById('map');
 
+
 const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/cg90/cjzxhjqv501a61cob0gayqyu6'
+    style: 'mapbox://styles/mapbox/streets-v11',
+     center: [151.21535, -34.00955], // starting position
+    zoom: 12 // starting zoom
   });
 }
 
