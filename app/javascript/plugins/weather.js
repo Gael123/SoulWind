@@ -5,12 +5,15 @@ const temperature = document.getElementById('temperature');
 const description = document.getElementById('description');
 const city = document.getElementById('city');
 const date = document.getElementById('date');
+const wind = document.getElementById('wind');
+const feels = document.getElementById('feels');
 
 const updateCard = (data) => {
   icon.src = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
   temperature.innerText = `${Math.round(data.main.temp) - 273}°C`;
   description.innerText = data.weather[0].description;
   city.innerText = data.name;
+  feels.innerText = `${Math.round(data.main.feels_like) - 273}°C`;
   const today = new Date();
   const localOffset = data.timezone + today.getTimezoneOffset() * 60;
   const localDate = new Date(today.setUTCSeconds(localOffset));
