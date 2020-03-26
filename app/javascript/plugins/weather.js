@@ -19,11 +19,7 @@ const updateCard = (data) => {
   date.innerText = formattedDate;
 };
 
-const fetchWeather = (cityName = 'Paris') => {
-  fetch(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`)
-    .then(response => response.json())
-    .then(updateCard);
-};
+
 
 const fetchWeatherByCoordinates = (coordinates) => {
   fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${API_KEY}`)
