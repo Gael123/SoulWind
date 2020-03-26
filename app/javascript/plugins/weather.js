@@ -29,7 +29,6 @@ const updateCard = (data) => {
   const options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
   const formattedDate = localDate.toLocaleDateString("en-US", options);
   date.innerText = formattedDate;
-
 };
 
 
