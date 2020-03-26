@@ -7,6 +7,7 @@ const city = document.getElementById('city');
 const date = document.getElementById('date');
 const speed = document.getElementById('speed');
 const feels = document.getElementById('feels');
+
 const direction = document.getElementById('direction')
 
 const updateCard = (data) => {
@@ -15,12 +16,13 @@ const updateCard = (data) => {
   description.innerText = data.weather[0].description;
   city.innerText = data.name;
   feels.innerText = `${Math.round(data.main.feels_like) - 273}°C`;
-  speed.innerText = `${Math.floor(data.wind.speed) * 1.9438}Knots`;
+  speed.innerText = `${Math.round(data.wind.speed) * 1.9438}Knots`;
 
-  function degToCompass(num){
 
-  }
-  direction.innerText = `${Math.round(((data.wind.deg %= 360 ) < 0 ? angle + 360 : angle )/ 45 ) % 8 } Knots`;
+  var d2d = require('degrees-to-direction');
+  direction.innerText = d2d(data.wind.deg);
+
+
   const today = new Date();
   const localOffset = data.timezone + today.getTimezoneOffset() * 60;
   const localDate = new Date(today.setUTCSeconds(localOffset));
