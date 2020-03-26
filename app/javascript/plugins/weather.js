@@ -5,8 +5,9 @@ const temperature = document.getElementById('temperature');
 const description = document.getElementById('description');
 const city = document.getElementById('city');
 const date = document.getElementById('date');
-const wind = document.getElementById('wind');
+const speed = document.getElementById('speed');
 const feels = document.getElementById('feels');
+const direction = document.getElementById('direction')
 
 const updateCard = (data) => {
   icon.src = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
@@ -14,12 +15,19 @@ const updateCard = (data) => {
   description.innerText = data.weather[0].description;
   city.innerText = data.name;
   feels.innerText = `${Math.round(data.main.feels_like) - 273}°C`;
+  speed.innerText = `${Math.floor(data.wind.speed) * 1.9438}Knots`;
+
+  function degToCompass(num){
+
+  }
+  direction.innerText = `${Math.round(((data.wind.deg %= 360 ) < 0 ? angle + 360 : angle )/ 45 ) % 8 } Knots`;
   const today = new Date();
   const localOffset = data.timezone + today.getTimezoneOffset() * 60;
   const localDate = new Date(today.setUTCSeconds(localOffset));
   const options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
   const formattedDate = localDate.toLocaleDateString("en-US", options);
   date.innerText = formattedDate;
+
 };
 
 
