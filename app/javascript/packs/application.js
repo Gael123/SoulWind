@@ -3,10 +3,10 @@ import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 import  { initAutocomplete } from '../plugins/init_autocomplete';
-import { fetchWeatherByCoordinates, fetchCurrentPositionWeather } from '../plugins/weather';
+import { fetchWeather, fetchCurrentPositionWeather } from '../plugins/weather';
 import  { weather } from  '../plugins/weather'
 
-
+fetchWeather();
 
 const form = document.querySelector('form');
 const coordinatesInput = document.getElementById('input');
@@ -21,4 +21,5 @@ currentLocationLink.addEventListener('click', fetchCurrentPositionWeather);
 initMapbox();
 initAutocomplete();
 fetchWeatherByCoordinates();
+fetchCurrentPositionWeather();
 

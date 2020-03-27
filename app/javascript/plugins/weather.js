@@ -31,13 +31,32 @@ const updateCard = (data) => {
   date.innerText = formattedDate;
 };
 
+const fetchWeather = (cityName = 'Paris') => {
+  fetch(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`)
+    .then(response => response.json())
+    .then(updateCard);
+};
 
-
+const results = document.querySelector("#results");
 const fetchWeatherByCoordinates = (coordinates) => {
   fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${API_KEY}`)
     .then(response => response.json())
     .then(updateCard);
+
 };
+
+
+
+
+const coordinates = document.querySelector('#results');
+const form = document.querySelector('form');
+const coordinatesInput = document.getElementById('input');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  fetchWeatherByCoordinates(coordinatesInput.value);
+});
+
+
 
 const fetchCurrentPositionWeather = (event) => {
   event.preventDefault();
@@ -46,4 +65,4 @@ const fetchCurrentPositionWeather = (event) => {
   });
 };
 
-export { fetchWeatherByCoordinates, fetchCurrentPositionWeather };
+export { fetchWeather, fetchCurrentPositionWeather };
