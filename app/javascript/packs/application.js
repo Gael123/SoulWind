@@ -5,8 +5,9 @@ import { initMapbox } from '../plugins/init_mapbox';
 import  { initAutocomplete } from '../plugins/init_autocomplete';
 import { fetchWeather, fetchCurrentPositionWeather } from '../plugins/weather';
 import  { weather } from  '../plugins/weather'
+fetchCurrentPositionWeather();
 
-fetchWeather();
+// fetchWeather();
 
 const form = document.querySelector('form');
 const coordinatesInput = document.getElementById('input');
@@ -15,11 +16,11 @@ form.addEventListener('submit', (event) => {
   fetchWeatherByCoordinates(coordinatesInput.value);
 });
 
-const currentLocationLink = document.getElementById('current-location');
-currentLocationLink.addEventListener('click', fetchCurrentPositionWeather);
+// const currentLocationLink = document.getElementById('current-location');
+// currentLocationLink.addEventListener('click', fetchCurrentPositionWeather);
 
 initMapbox();
 initAutocomplete();
 fetchWeatherByCoordinates();
-fetchCurrentPositionWeather();
+// fetchCurrentPositionWeather();
 

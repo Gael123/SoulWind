@@ -59,7 +59,7 @@ form.addEventListener('submit', (event) => {
 
 
 const fetchCurrentPositionWeather = (event) => {
-  event.preventDefault();
+  // event.preventDefault();
   navigator.geolocation.getCurrentPosition((data) => {
     fetchWeatherByCoordinates({ lat: data.coords.latitude, lon: data.coords.longitude });
   });
