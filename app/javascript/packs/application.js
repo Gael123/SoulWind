@@ -1,12 +1,12 @@
-
 import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 import  { initAutocomplete } from '../plugins/init_autocomplete';
-import { fetchWeather, fetchCurrentPositionWeather, fetchWeatherByCoordinates } from '../plugins/weather';
-import  { weather } from  '../plugins/weather'
-fetchCurrentPositionWeather();
+import { fetchWeather, fetchCurrentPositionWeather, fetchForecastByCoordinates,fetchCurrentPositionForecast } from '../plugins/weather';
+import  { weather } from  '../plugins/weather';
 
+fetchCurrentPositionWeather();
+// fetchCurrentPositionForecast ();
 // fetchWeather();
 
 // const form = document.querySelector('form');

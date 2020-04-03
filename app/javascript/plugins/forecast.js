@@ -8,15 +8,13 @@ const city = document.getElementById('city');
 
 const forecastCard = (data) => {
 
+  city.innerText = data.city.name;
 
-
-  city.innerText = data.name;
-
-  forecastspeed.innerText = `${Math.round(data.wind.speed) * 1.9438}Knots`;
+  forecastspeed.innerText = `${Math.round(data.list.wind.speed) * 1.9438}Knots`;
 
 
   var d2d = require('degrees-to-direction');
-  forecastdirection.innerText = d2d(data.wind.deg);
+  forecastdirection.innerText = d2d(data.list.wind.deg);
 
 
 

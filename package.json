@@ -2,6 +2,7 @@
   "name": "SoulWind",
   "private": true,
   "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^4.5.1",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
@@ -10,10 +11,11 @@
     "degrees-to-direction": "^1.1.1",
     "jquery": "^3.4.1",
     "mapbox-gl": "^1.6.0",
-    "places.js": "^1.17.1",
+    "places.js": "^1.18.1",
     "popper.js": "^1.16.0",
     "stimulus": "^1.1.1",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "unirest": "^0.6.0"
   },
   "version": "0.1.0",
   "devDependencies": {

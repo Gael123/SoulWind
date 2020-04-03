@@ -6,8 +6,8 @@ class ExperiencesController < ApplicationController
     @markers = @experiences.map do |experience|
       {
         lat: experience.latitude,
-        lng: experience.longitude
-
+        lng: experience.longitude,
+       infoWindow: render_to_string(partial: "info_window", locals: { flat: flat })
       }
     end
    end
