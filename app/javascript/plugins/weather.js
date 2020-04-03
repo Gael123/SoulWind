@@ -48,13 +48,13 @@ const fetchWeatherByCoordinates = (coordinates) => {
 
 
 
-const coordinates = document.querySelector('#results');
-const form = document.querySelector('form');
-const coordinatesInput = document.getElementById('input');
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  fetchWeatherByCoordinates(coordinatesInput.value);
-});
+// const coordinates = document.querySelector('#results');
+// const form = document.querySelector('form');
+// const coordinatesInput = document.getElementById('input');
+// form.addEventListener('submit', (event) => {
+//   event.preventDefault();
+//   fetchWeatherByCoordinates(coordinatesInput.value);
+// });
 
 
 
