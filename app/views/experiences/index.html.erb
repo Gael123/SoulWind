@@ -25,7 +25,7 @@
       <% end %>
 
  <% @experiences.each do |experience| %>
-  <%= link_to "", experience_path(experience), class: "card-clickable" %>
+  <%= link_to "", new_experience_path(@experience), class: "card-clickable" %>
   <img src="<%= cl_image_path experience.photo, crop: :fill %>" alt="">
   <h2><%= link_to experience.content, experience %></h2>
               <p id="text"><%= experience.gear %></p>
