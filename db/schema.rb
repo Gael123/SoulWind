@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_15_084014) do
+ActiveRecord::Schema.define(version: 2020_04_03_053025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2019_12_15_084014) do
     t.float "latitude"
     t.float "longitude"
     t.string "photo"
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.integer "following_id", null: false
+    t.integer "follower_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["follower_id"], name: "index_follows_on_follower_id"
+    t.index ["following_id", "follower_id"], name: "index_follows_on_following_id_and_follower_id", unique: true
+    t.index ["following_id"], name: "index_follows_on_following_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -45,6 +55,11 @@ ActiveRecord::Schema.define(version: 2019_12_15_084014) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "weathers", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "posts", "experiences", column: "experiences_id"
