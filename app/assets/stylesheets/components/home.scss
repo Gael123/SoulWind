@@ -2,6 +2,47 @@
 background-size:cover;
 background-position:center;
 height:100vh;
+background-attachment:scroll;
 
 
+}
+.btn-ghost {
+  color: #f2c94c;
+  // border: 1px solid #4A4A4A;
+  background: transparent;
+  padding: 28px 8px;
+  border-radius: 50px;
+  font-weight: bolder;
+  // opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+  color:#fff;
+}
+.home-container{
+  display: flex;
+  justify-content: space-between;
+
+}
+.second-banner{
+display:flex;
+justify-content:space-even;
+
+}
+.third-banner{
+// overflow: hidden;
+
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+
+
+  img{
+
+  // object-fit: cover;
+  }
 }
