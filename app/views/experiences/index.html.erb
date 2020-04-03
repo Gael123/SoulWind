@@ -1,4 +1,7 @@
-<div>
+
+
+
+
 <div class = "mapbody"
   id="map"
   style="width: 100%;
@@ -12,10 +15,23 @@
 
 
  <br />
-<!-- div id="menu">
+<%= form_tag experiences_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control search-form",
+          placeholder: "find an experience"
+        %>
+        <%= submit_tag "Search", class: "my-4 btn-solid btn-clean-border" %>
+      <% end %>
 
+ <% @experiences.each do |experience| %>
+  <%= link_to "", experience_path(experience), class: "card-clickable" %>
+  <img src="<%= cl_image_path experience.photo, crop: :fill %>" alt="">
+  <h2><%= link_to experience.content, experience %></h2>
+              <p id="text"><%= experience.gear %></p>
+               <%= cl_image_tag experience.user.photo, class: "card-trip-user avatar-bordered" %>
+               <% end %>
 
-</div> -->
 
 <div class="container">
       <div class="row">

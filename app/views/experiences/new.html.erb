@@ -1,0 +1,14 @@
+<div class="form-container create-form-container">
+  <div class="create-form-banner">
+    <p>Who do you want to save the world?</p>
+    <%= simple_form_for(@experience) do |f| %>
+      <%= f.input :content, placeholder: "Name", label: false %>
+      <%= f.input :gear, placeholder: "Price", label: false %>
+      <%= f.input :location, placeholder: "Location", label: false %>
+      <%= f.input :photo, label: false, class: "btn-photo-upload" %>
+      <%= f.input :pictures, as: :file, input_html: { multiple: true } %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.submit "Add to a moment", class: "btn-solid btn-block" %>
+    <% end %>
+  </div>
+</div>
