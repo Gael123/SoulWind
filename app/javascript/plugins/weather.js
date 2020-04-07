@@ -75,15 +75,15 @@ const forecastspeed = document.getElementById('forecastspeed');
 const forecastdirection = document.getElementById('forecastdirection')
 
 const forecastCard = (data) => {
-  forecastspeed.innerText = `${Math.round(data.list.wind[0].speed) * 1.9438}Knots`;
+  forecastspeed.innerText = `${Math.round(data.list.wind.speed) * 1.9438}Knots`;
  var d2d = require('degrees-to-direction');
 
-  forecastdirection.innerText = d2d(data.list.wind[0].deg);
+  forecastdirection.innerText = d2d(data.list.wind.deg);
 
 };
 
 const fetchForecastByCoordinates = (coordinates) => {
-  fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${city.coordinates.lat}&lon=${city.coordinates.lon}&appid=${API_KEY}`)
+  fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${API_KEY}`)
     .then(response => response.json())
     .then(forecastCard);
     // .then(forecastCard);

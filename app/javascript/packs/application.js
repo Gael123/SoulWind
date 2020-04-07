@@ -4,10 +4,16 @@ import { initMapbox } from '../plugins/init_mapbox';
 import  { initAutocomplete } from '../plugins/init_autocomplete';
 import { fetchWeather, fetchCurrentPositionWeather, fetchForecastByCoordinates,fetchCurrentPositionForecast } from '../plugins/weather';
 import  { weather } from  '../plugins/weather';
+import ReactOnRails from 'react-on-rails';
+import ReactWeather from '../components/ReactWeather';
+ReactOnRails.register({
+ ReactWeather
+});
+
 
 fetchCurrentPositionWeather();
-// fetchCurrentPositionForecast ();
-// fetchWeather();
+fetchForecastByCoordinates ();
+fetchWeather();
 
 // const form = document.querySelector('form');
 // const coordinatesInput = document.getElementById('input');
@@ -18,7 +24,6 @@ fetchCurrentPositionWeather();
 
 // const currentLocationLink = document.getElementById('current-location');
 // currentLocationLink.addEventListener('click', fetchCurrentPositionWeather);
-
 initMapbox();
 initAutocomplete();
 // fetchWeatherByCoordinates();
