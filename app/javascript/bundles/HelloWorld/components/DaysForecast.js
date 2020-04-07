@@ -10,6 +10,12 @@ const propTypes = {
   daysData: PropTypes.array.isRequired
 };
 
+
+
+
+
+
+
 const DaysForecast = (props) => {
   const { forecast, unit, daysData } = props;
   if (forecast === '5days') {

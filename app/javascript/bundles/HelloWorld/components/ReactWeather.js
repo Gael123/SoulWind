@@ -1,4 +1,4 @@
- const apiKey = '9e482754ef144b23e87671041f96b9fc';
+ const apikey = '9e482754ef144b23e87671041f96b9fc';
 import React, { PropTypes } from 'react';
 import OpenWeatherApi from './OpenWeatherApi';
 import utils from '../utils';
