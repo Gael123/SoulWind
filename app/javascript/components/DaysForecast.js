@@ -1,5 +1,5 @@
 
-import React, { PropTypes } from 'react';
+ import React, { PropTypes } from 'react';
 import utils from '../utils';
 import WeatherIcon from './WeatherIcon';
 import '../../css/components/DaysForecast.scss';
@@ -21,12 +21,13 @@ const DaysForecast = (props) => {
             if (i >= 0) {
               const iconCls = utils.getIcon(day.icon);
               return (
-
+                <div key={`day-${i}`} className='rw-day'>
                   <div className="rw-date">{day.date}</div>
                   <WeatherIcon name={iconCls} />
                   <div className="rw-desc">{day.description}</div>
                   <div className="rw-range">{day.temperature.max} / {day.temperature.min} {units.temp}</div>
                 </div>
+
               );
             }
             return '';

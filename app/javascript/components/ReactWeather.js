@@ -1,6 +1,6 @@
-
+ const apiKey = '9e482754ef144b23e87671041f96b9fc';
 import React, { PropTypes } from 'react';
-import OpenWeatherApi from '../OpenWeatherApi';
+import OpenWeatherApi from './OpenWeatherApi';
 import utils from '../utils';
 import TodayForecast from './TodayForecast';
 import DaysForecast from './DaysForecast';
@@ -42,7 +42,7 @@ class ReactWeather extends React.Component {
       const todayIcon = utils.getIcon(today.icon);
       return (
         <div className="rw-box">
-          <div className=`rw-main type-${forecast}`>
+          <div className={`rw-main type-${forecast}`}>
             <div className="rw-box-left">
               <h2>{data.location.name}</h2>
               <TodayForecast todayData={today} unit={unit} lang={lang} />

@@ -5,14 +5,14 @@ import  { initAutocomplete } from '../plugins/init_autocomplete';
 import { fetchWeather, fetchCurrentPositionWeather, fetchForecastByCoordinates,fetchCurrentPositionForecast } from '../plugins/weather';
 import  { weather } from  '../plugins/weather';
 import ReactOnRails from 'react-on-rails';
-import ReactWeather from '../components/ReactWeather';
+var ReactWeather = require('react-open-weather').default;
 ReactOnRails.register({
  ReactWeather
 });
 
 
 fetchCurrentPositionWeather();
-fetchForecastByCoordinates ();
+// fetchForecastByCoordinates ();
 fetchWeather();
 
 // const form = document.querySelector('form');
