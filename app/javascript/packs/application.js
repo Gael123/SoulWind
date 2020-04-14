@@ -5,9 +5,11 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { fetchWeather, fetchCurrentPositionWeather, fetchForecastByCoordinates, fetchCurrentPositionForecast } from '../plugins/weather';
 import { weather } from '../plugins/weather';
 import ReactOnRails from 'react-on-rails';
-
+import React, { render } from 'react';
 
 var ReactWeather = require('react-open-weather').default;
+
+
 
 
 ReactOnRails.register({

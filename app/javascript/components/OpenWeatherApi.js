@@ -1,3 +1,4 @@
+open_weather_api_key = "9e482754ef144b23e87671041f96b9f"
 import axios from 'axios';
 import utils from './utils';
 export default class OpenWeatherApi {
@@ -9,7 +10,7 @@ export default class OpenWeatherApi {
     }
     getForecast(args) {
         const endpointForecast = this.baseApiUrl + '/forecast' + `${this.apiKey}`;
-        const endPointToday = `${this.baseApiUrl}/weather`;
+        const endPointToday = `${this.baseApiUrl}/weather` + `${this.apiKey}`
         const params = Object.assign({
                 appid: this.apiKey,
                 lang: this.lang,
@@ -28,7 +29,7 @@ export default class OpenWeatherApi {
                     const forecastData = forecastReponse.data;
                     const todayData = todayReponse.data;
                     if (forecastData && todayData) {
-                        return this._map(forecastData, todayData, params.lang);
+                        r eturn this._map(forecastData, todayData, params.lang);
                     }
                     return {};
                 })
