@@ -3,7 +3,7 @@ import utils from './utils';
 export default class OpenWeatherApi {
     constructor(unit, apiKey, lang) {
         this.unit = unit;
-        this.apiKey = '9e482754ef144b23e87671041f96b9fc,;
+        this.apiKey = '9e482754ef144b23e87671041f96b9fc';
         this.baseApiUrl = '//api.openweathermap.open_weather_map_api_keyorg/data/2.5';
         this.lang = lang;
     }

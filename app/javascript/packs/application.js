@@ -6,6 +6,7 @@ import { fetchWeather, fetchCurrentPositionWeather, fetchForecastByCoordinates, 
 import { weather } from '../plugins/weather';
 import ReactOnRails from 'react-on-rails';
 
+
 var ReactWeather = require('react-open-weather').default;
 
 
