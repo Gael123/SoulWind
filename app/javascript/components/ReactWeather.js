@@ -1,61 +1,101 @@
-import React, {Component} from 'react';
-import ForecastCard from './components/ForecastCard';
+import React, { PropTypes } from 'react';
+import OpenWeatherApi from './OpenWeatherApi';
+import utils from '../utils';
+import TodayForecast from './TodayForecast';
+import DaysForecast from './DaysForecast';
+import WeatherIcon from './WeatherIcon';
+import '../../css/components/ReactWeather.scss';
 
+const propTypes = {
+  unit: PropTypes.oneOf(['metric', 'imperial']),
+  type: PropTypes.oneOf(['geo', 'city']),
+  lat: PropTypes.string,
+  lon: PropTypes.string,
+  city: PropTypes.string,
+  forecast: PropTypes.oneOf(['today', '5days']),
+  apikey: PropTypes.string.isRequired,
+  lang: PropTypes.string,
+};
 
- export default class ReactWeather {
+const defaultProps = {
+  unit: 'metric',
+  type: 'city',
+  forecast: 'today',
+  lang: 'en',
+};
 
-  constructor(props){
+class ReactWeather extends React.Component {
+  constructor(props) {
     super(props);
-
+    this.api = new OpenWeatherApi(props.unit, props.apikey, props.lang);
     this.state = {
-      latitude: 0,
-      longitude: 0,
-      forecast: [],
-      error:''
+      data: null,
     };
   }
-
-  componentDidMount(){
-    // Get the user's location
-    this.getLocation();
-  }
-
-  getLocation(){
-
-    // Get the current position of the user
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        this.setState(
-          (prevState) => ({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude
-          }), () => { this.getWeather(); }
-        );
-      },
-      (error) => this.setState({ forecast: error.message }),
-      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
-    );
-  }
-
-  getWeather(){
-
-    // Construct the API url to call
-    let url = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + this.state.latitude + '&lon=' + this.state.longitude + '&units=metric&appid=YOUR_KEY_HERE';
-
-    // Call the API, and set the state of the weather forecast
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      this.setState((prevState, props) => ({
-        forecast: data
-      }));
-    })
-  }
-
   render() {
-    return (
-      <FlatList data={this.state.forecast.list} style={{marginTop:20}} keyExtractor={item => item.dt_txt} renderItem={({item}) => <ForecastCard detail={item} location={this.state.forecast.city.name} />} />
-    );
+    const { unit, forecast, lang } = this.props;
+    const data = this.state.data;
+    if (data) {
+      const days = data.days;
+      const today = data.current;
+      const todayIcon = utils.getIcon(today.icon);
+      return (
+        <div className="rw-box">
+          <div className={`rw-main type-${forecast}`}>
+            <div className="rw-box-left">
+              <h2>{data.location.name}</h2>
+              <TodayForecast todayData={today} unit={unit} lang={lang} />
+            </div>
+            <div className="rw-box-right">
+              <WeatherIcon name={todayIcon} />
+            </div>
+          </div>
+          <DaysForecast
+            unit={unit}
+            forecast={forecast}
+            daysData={days}
+            lang={lang}
+          />
+        </div>
+      );
+    }
+    return <div>Loading...</div>;
   }
-
+  componentDidMount() {
+    this.getForecastData();
+  }
+  getForecastData() {
+    const self = this;
+    const params = self._getParams();
+    let promise = null;
+    promise = self.api.getForecast(params);
+    promise.then(data => {
+      self.setState({
+        data,
+      });
+    });
+  }
+  _getParams() {
+    const { type, lon, lat, city, lang } = this.props;
+    switch (type) {
+      case 'city':
+        return { q: city, lang };
+      case 'geo':
+        return {
+          lat,
+          lon,
+          lang,
+        };
+      default:
+        return {
+          q: 'auto:ip',
+          lang,
+        };
+    }
+  }
 }
+
+ReactWeather.propTypes = propTypes;
+ReactWeather.defaultProps = defaultProps;
+
+export default ReactWeather;
