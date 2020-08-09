@@ -38,27 +38,27 @@ export default class OpenWeatherApi {
       );
     return promise;
   }
-  _map(forecastData, todayData, lang) {
+  // _map(forecastData, todayData, lang) {
 
-    const mapped = {};
+  //   const mapped = {};
 
-    mapped.location = forecastData.city;
-    mapped.current = {
-      description: todayData.weather[0].description,
-      icon: todayData.weather[0].icon,
-      temperature: {
-        min: todayData.main.temp_min.toFixed(0),
-        max: todayData.main.temp_max.toFixed(0),
-        current: todayData.main.temp.toFixed(0)
-      },
-      wind: todayData.wind.speed.toFixed(0),
-      humidity: todayData.main.humidity,
-      date: utils.formatDate(todayData.dt, lang)
-    };
-    mapped.days = this._mapForecast(forecastData.list, lang);
+  //   mapped.location = forecastData.city;
+  //   mapped.current = {
+  //     description: todayData.weather[0].description,
+  //     icon: todayData.weather[0].icon,
+  //     temperature: {
+  //       min: todayData.main.temp_min.toFixed(0),
+  //       max: todayData.main.temp_max.toFixed(0),
+  //       current: todayData.main.temp.toFixed(0)
+  //     },
+  //     wind: todayData.wind.speed.toFixed(0),
+  //     humidity: todayData.main.humidity,
+  //     date: utils.formatDate(todayData.dt, lang)
+  //   };
+  //   mapped.days = this._mapForecast(forecastData.list, lang);
 
-    return mapped;
-  }
+  //   return mapped;
+  // }
   // _mapForecast(daysData, lang) {
 
   //   var comingDays = utils.getNextDays(new Date());

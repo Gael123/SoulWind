@@ -13,7 +13,7 @@ var ReactWeather = require('react-open-weather').default;
 
 ReactDOM.render(
   <ReactWeather
-    forecast="5days"
+    // forecast="5days"
     apikey="9e482754ef144b23e87671041f96b9fc"
     type="city"
     city="Munich"
@@ -22,9 +22,9 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-ReactOnRails.register({
-    ReactWeather
-});
+// ReactOnRails.register({
+//     ReactWeather
+// });
 
 
 fetchCurrentPositionWeather();

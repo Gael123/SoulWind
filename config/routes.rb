@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'hello_world', to: 'hello_world#index'
-  get 'weather/find_city'
+  # get 'hello_world', to: 'hello_world#index'
+  # get 'weather/find_city'
   devise_for :users
   root to: 'pages#home'
 
